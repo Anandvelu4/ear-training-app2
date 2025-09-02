@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Day 9 • Ear Training</title><link rel="stylesheet" href="../style.css"></head><body>
+<div class="container">
+  <header><h1>Day 9 • Ear Training</h1></header>
+  <div class="card">
+    <p class="note">Chord progression I–V–vi–IV listening.</p>
+    <div class="row"><button onclick="alert('No action')">Play</button></div>
+    <textarea id="notes" placeholder="Write your practice notes..."></textarea>
+    <div class="row"><button onclick="saveNotes(9, document.getElementById('notes').value)">Save Notes</button> <button onclick="markComplete(9); updateProgress();">Mark Complete</button></div>
+    <a class="back" href="../index.html">⬅ Back to Home</a>
+  </div>
+  <div class="footer">Auto-saves locally on this device.</div>
+</div>
+<script src="../common.js"></script>
+<script>document.getElementById('notes').value = loadNotes(9);</script>
+</body></html>

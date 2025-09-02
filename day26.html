@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Day 26 • Ear Training</title><link rel="stylesheet" href="../style.css"></head><body>
+<div class="container">
+  <header><h1>Day 26 • Ear Training</h1></header>
+  <div class="card">
+    <p class="note">Blues scale vs major scale recognition.</p>
+    <div class="row"><button onclick="(function(){var notes=[261.63, 311.13, 329.63, 349.23]; for(var i=0;i<notes.length;i++){ playNote(notes[i],0.45,i*0.45) } })()">🔊 Play Melody</button></div>
+    <textarea id="notes" placeholder="Write your practice notes..."></textarea>
+    <div class="row"><button onclick="saveNotes(26, document.getElementById('notes').value)">Save Notes</button> <button onclick="markComplete(26); updateProgress();">Mark Complete</button></div>
+    <a class="back" href="../index.html">⬅ Back to Home</a>
+  </div>
+  <div class="footer">Auto-saves locally on this device.</div>
+</div>
+<script src="../common.js"></script>
+<script>document.getElementById('notes').value = loadNotes(26);</script>
+</body></html>

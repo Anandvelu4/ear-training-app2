@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Day 12 • Ear Training</title><link rel="stylesheet" href="../style.css"></head><body>
+<div class="container">
+  <header><h1>Day 12 • Ear Training</h1></header>
+  <div class="card">
+    <p class="note">Syncopation exercises (clap & listen).</p>
+    <div class="row"><button onclick="(function(){var bpm=80; for(let j=0;j<8;j++){ setTimeout(()=>{ playNote(880,0.08,0) }, j*(60/bpm)*1000) }})()">⏱ Metronome 80</button></div>
+    <textarea id="notes" placeholder="Write your practice notes..."></textarea>
+    <div class="row"><button onclick="saveNotes(12, document.getElementById('notes').value)">Save Notes</button> <button onclick="markComplete(12); updateProgress();">Mark Complete</button></div>
+    <a class="back" href="../index.html">⬅ Back to Home</a>
+  </div>
+  <div class="footer">Auto-saves locally on this device.</div>
+</div>
+<script src="../common.js"></script>
+<script>document.getElementById('notes').value = loadNotes(12);</script>
+</body></html>

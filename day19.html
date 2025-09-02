@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Day 19 • Ear Training</title><link rel="stylesheet" href="../style.css"></head><body>
+<div class="container">
+  <header><h1>Day 19 • Ear Training</h1></header>
+  <div class="card">
+    <p class="note">Polyrhythm tapping (2 vs 3).</p>
+    <div class="row"><button onclick="alert('Polyrhythm demo: try tapping 2 vs 3 repeatedly with claps.')">▶ Polyrhythm</button></div>
+    <textarea id="notes" placeholder="Write your practice notes..."></textarea>
+    <div class="row"><button onclick="saveNotes(19, document.getElementById('notes').value)">Save Notes</button> <button onclick="markComplete(19); updateProgress();">Mark Complete</button></div>
+    <a class="back" href="../index.html">⬅ Back to Home</a>
+  </div>
+  <div class="footer">Auto-saves locally on this device.</div>
+</div>
+<script src="../common.js"></script>
+<script>document.getElementById('notes').value = loadNotes(19);</script>
+</body></html>

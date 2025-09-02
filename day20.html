@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Day 20 • Ear Training</title><link rel="stylesheet" href="../style.css"></head><body>
+<div class="container">
+  <header><h1>Day 20 • Ear Training</h1></header>
+  <div class="card">
+    <p class="note">Chord ID: major/minor/7th.</p>
+    <div class="row"><button onclick="(function(){var root=261.63; var sems=[0, 4, 7, 10]; for(var i=0;i<sems.length;i++){ playNote(root*Math.pow(2,sems[i]/12),0.9,i*0.08) } })()">🔊 Play Chord</button></div>
+    <textarea id="notes" placeholder="Write your practice notes..."></textarea>
+    <div class="row"><button onclick="saveNotes(20, document.getElementById('notes').value)">Save Notes</button> <button onclick="markComplete(20); updateProgress();">Mark Complete</button></div>
+    <a class="back" href="../index.html">⬅ Back to Home</a>
+  </div>
+  <div class="footer">Auto-saves locally on this device.</div>
+</div>
+<script src="../common.js"></script>
+<script>document.getElementById('notes').value = loadNotes(20);</script>
+</body></html>
