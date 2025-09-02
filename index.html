@@ -1,0 +1,52 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ear Training - 30 Days</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Ear Training Workbook • 30 Days</h1>
+    <div class="progress"><div id="progressBar"></div></div>
+    <div style="margin-top:8px"><small id="progressLabel"></small></div>
+  </header>
+
+  <section class="grid" id="daysGrid"></section>
+
+  <div class="footer">Tip: Add to home screen for app-like experience • All data stays on this device</div>
+</div>
+<script src="common.js"></script>
+<script>
+const exercises = [{"short": "Foundations: high vs low, hum same pitch.", "play": [{"type": "note", "freq": 261.63}]}, {"short": "Intervals: minor/major 2nds practice.", "play": [{"type": "interval", "semitones": 2}]}, {"short": "Intervals: major/minor 3rds practice.", "play": [{"type": "interval", "semitones": 4}]}, {"short": "Perfect 4th & 5th identification.", "play": [{"type": "interval", "semitones": 5}, {"type": "interval", "semitones": 7}]}, {"short": "Octave listening and matching.", "play": [{"type": "interval", "semitones": 12}]}, {"short": "Rhythm: clap quarter notes & eighth notes.", "play": [{"type": "metronome", "bpm": 60}]}, {"short": "Sing back simple melodies (3 notes).", "play": [{"type": "melody", "notes": [261.63, 329.63, 392]}]}, {"short": "Major vs minor triads hearing.", "play": [{"type": "chord", "semitones": [0, 4, 7]}, {"type": "chord", "semitones": [0, 3, 7]}]}, {"short": "Chord progression I\u2013V\u2013vi\u2013IV listening.", "play": [{"type": "progression", "semitones": [0, 7, 9, 5]}]}, {"short": "Identify happy (major) vs sad (minor) chords.", "play": [{"type": "chord", "semitones": [0, 4, 7]}]}, {"short": "Sing intervals: 3rd and 5th.", "play": [{"type": "interval", "semitones": 4}, {"type": "interval", "semitones": 7}]}, {"short": "Syncopation exercises (clap & listen).", "play": [{"type": "metronome", "bpm": 80}]}, {"short": "Major scale recognition & singing.", "play": [{"type": "scale", "intervals": [2, 2, 1, 2, 2, 2, 1]}]}, {"short": "Minor scale recognition & singing.", "play": [{"type": "scale", "intervals": [2, 1, 2, 2, 1, 2, 2]}]}, {"short": "Arpeggios: sing chord tones.", "play": [{"type": "chord", "semitones": [0, 4, 7]}]}, {"short": "Consonance vs dissonance hearing.", "play": [{"type": "interval", "semitones": 7}, {"type": "interval", "semitones": 1}]}, {"short": "Melodic dictation: short phrase transcription.", "play": [{"type": "melody", "notes": [392, 349, 330, 294]}]}, {"short": "Perfect 4th & 5th focused practice.", "play": [{"type": "interval", "semitones": 5}, {"type": "interval", "semitones": 7}]}, {"short": "Polyrhythm tapping (2 vs 3).", "play": [{"type": "polyrhythm"}]}, {"short": "Chord ID: major/minor/7th.", "play": [{"type": "chord", "semitones": [0, 4, 7, 10]}]}, {"short": "Sing natural minor and compare.", "play": [{"type": "scale", "intervals": [2, 1, 2, 2, 1, 2, 2]}]}, {"short": "Triplets & rhythmic subdivision.", "play": [{"type": "metronome", "bpm": 90}]}, {"short": "Half-steps & whole-steps recognition.", "play": [{"type": "interval", "semitones": 1}, {"type": "interval", "semitones": 2}]}, {"short": "Chord inversions hearing practice.", "play": [{"type": "chord", "semitones": [0, 4, 7]}, {"type": "chord_inv", "semitones": [4, 7, 12]}]}, {"short": "Melody transcription without help.", "play": [{"type": "melody", "notes": [261.63, 293.66, 329.63, 349.23]}]}, {"short": "Blues scale vs major scale recognition.", "play": [{"type": "melody", "notes": [261.63, 311.13, 329.63, 349.23]}]}, {"short": "6/8 time feel & practice.", "play": [{"type": "metronome", "bpm": 70}]}, {"short": "Key change (modulation) detection.", "play": [{"type": "modulation", "semitones": 2}]}, {"short": "Final mixed test: intervals, chords & rhythms.", "play": [{"type": "melody", "notes": [261.63, 330, 392]}]}];
+const daysGrid = document.getElementById('daysGrid');
+for(let i=1;i<=30;i++){
+  const ex = exercises[i-1];
+  const card = document.createElement('div');
+  card.className='card day';
+  const title = document.createElement('h3');
+  title.innerText = 'Day ' + i;
+  const note = document.createElement('div');
+  note.className='note';
+  note.innerText = ex.short;
+  const open = document.createElement('div');
+  open.className='row';
+  const link = document.createElement('a');
+  link.href = 'days/day' + i + '.html';
+  link.innerText = 'Open';
+  link.className='back';
+  const status = document.createElement('button');
+  status.className='check';
+  status.innerText = isComplete(i) ? 'Done' : 'Mark';
+  status.onclick = function(e){ e.preventDefault(); markComplete(i); status.innerText = isComplete(i)? 'Done':'Mark'; updateProgress(); }
+  open.appendChild(link); open.appendChild(status);
+  card.appendChild(title); card.appendChild(note); card.appendChild(open);
+  daysGrid.appendChild(card);
+}
+updateProgress();
+</script>
+</body>
+</html>
